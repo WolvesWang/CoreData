@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A2E726681E73912B009CBE71 /* libBHRExtensions.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A2E726641E7390A2009CBE71 /* libBHRExtensions.a */; };
 		B22FFC031E6D446800849BA5 /* Session+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = B22FFBE41E6D446800849BA5 /* Session+CoreDataClass.m */; };
 		B22FFC041E6D446800849BA5 /* Session+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = B22FFBE61E6D446800849BA5 /* Session+CoreDataProperties.m */; };
 		B22FFC071E6D446800849BA5 /* Job+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = B22FFBEC1E6D446800849BA5 /* Job+CoreDataClass.m */; };
@@ -68,7 +69,6 @@
 		B2524E321E72B61500733A21 /* SVWebViewControllerActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = B2524E231E72B61500733A21 /* SVWebViewControllerActivity.m */; };
 		B2524E371E72B73700733A21 /* Address+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = B2524E341E72B73700733A21 /* Address+CoreDataClass.m */; };
 		B2524E381E72B73700733A21 /* Address+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = B2524E361E72B73700733A21 /* Address+CoreDataProperties.m */; };
-		B2524E5B1E72BB9E00733A21 /* libBHRExtensions.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B2524E581E72BB9500733A21 /* libBHRExtensions.a */; };
 		B2524E661E72BC3B00733A21 /* Model1ToModel2.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = B2524E621E72BC3B00733A21 /* Model1ToModel2.xcmappingmodel */; };
 		B2524E671E72BC3B00733A21 /* Model2ToModel3.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = B2524E631E72BC3B00733A21 /* Model2ToModel3.xcmappingmodel */; };
 		B2524E681E72BC3B00733A21 /* Model3ToModel4.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = B2524E641E72BC3B00733A21 /* Model3ToModel4.xcmappingmodel */; };
@@ -96,16 +96,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		B2524E571E72BB9500733A21 /* PBXContainerItemProxy */ = {
+		A2E726631E7390A2009CBE71 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = B2524E521E72BB9400733A21 /* BHRExtensions.xcodeproj */;
+			containerPortal = A2E7265E1E7390A2009CBE71 /* BHRExtensions.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 5FBA1DE318BF86000077328F;
 			remoteInfo = BHRExtensions;
 		};
-		B2524E591E72BB9500733A21 /* PBXContainerItemProxy */ = {
+		A2E726651E7390A2009CBE71 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = B2524E521E72BB9400733A21 /* BHRExtensions.xcodeproj */;
+			containerPortal = A2E7265E1E7390A2009CBE71 /* BHRExtensions.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 5FBA1DF318BF86000077328F;
 			remoteInfo = BHRExtensionsTests;
@@ -113,6 +113,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A2E7265E1E7390A2009CBE71 /* BHRExtensions.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BHRExtensions.xcodeproj; path = "../../../../Downloads/BHRExtensions-master/BHRExtensions.xcodeproj"; sourceTree = "<group>"; };
+		A2E726671E7390C0009CBE71 /* BHRExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BHRExtensions.h; path = "../../../../Downloads/BHRExtensions-master/BHRExtensions/BHRExtensions.h"; sourceTree = "<group>"; };
 		B22FFBE31E6D446700849BA5 /* Session+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Session+CoreDataClass.h"; sourceTree = "<group>"; };
 		B22FFBE41E6D446800849BA5 /* Session+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Session+CoreDataClass.m"; sourceTree = "<group>"; };
 		B22FFBE51E6D446800849BA5 /* Session+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Session+CoreDataProperties.h"; sourceTree = "<group>"; };
@@ -235,8 +237,6 @@
 		B2524E341E72B73700733A21 /* Address+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Address+CoreDataClass.m"; sourceTree = "<group>"; };
 		B2524E351E72B73700733A21 /* Address+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Address+CoreDataProperties.h"; sourceTree = "<group>"; };
 		B2524E361E72B73700733A21 /* Address+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Address+CoreDataProperties.m"; sourceTree = "<group>"; };
-		B2524E521E72BB9400733A21 /* BHRExtensions.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BHRExtensions.xcodeproj; path = "../../../../Downloads/BHRExtensions-master/BHRExtensions.xcodeproj"; sourceTree = "<group>"; };
-		B2524E5C1E72BBBE00733A21 /* BHRExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BHRExtensions.h; path = "../../../../Downloads/BHRExtensions-master/BHRExtensions/BHRExtensions.h"; sourceTree = "<group>"; };
 		B2524E621E72BC3B00733A21 /* Model1ToModel2.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = Model1ToModel2.xcmappingmodel; sourceTree = "<group>"; };
 		B2524E631E72BC3B00733A21 /* Model2ToModel3.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = Model2ToModel3.xcmappingmodel; sourceTree = "<group>"; };
 		B2524E641E72BC3B00733A21 /* Model3ToModel4.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = Model3ToModel4.xcmappingmodel; sourceTree = "<group>"; };
@@ -288,7 +288,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B2524E5B1E72BB9E00733A21 /* libBHRExtensions.a in Frameworks */,
+				A2E726681E73912B009CBE71 /* libBHRExtensions.a in Frameworks */,
 				B2524DF71E72B0DA00733A21 /* libxml2.tbd in Frameworks */,
 				B2524DF51E72B0C500733A21 /* libz.tbd in Frameworks */,
 			);
@@ -297,10 +297,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A2E7265F1E7390A2009CBE71 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A2E726641E7390A2009CBE71 /* libBHRExtensions.a */,
+				A2E726661E7390A2009CBE71 /* BHRExtensionsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		B24A2FD61E67B79500E5A07E /* Tools */ = {
 			isa = PBXGroup;
 			children = (
-				B2524E521E72BB9400733A21 /* BHRExtensions.xcodeproj */,
+				A2E7265E1E7390A2009CBE71 /* BHRExtensions.xcodeproj */,
 				B2524E071E72B61500733A21 /* SVWebViewController */,
 				B2524DED1E72B02200733A21 /* RaptureXML */,
 				B23BDB3C1E6EA7F7001BE7B7 /* WBMigrationManager.h */,
@@ -400,7 +409,7 @@
 		B2524DEC1E72AFE600733A21 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				B2524E5C1E72BBBE00733A21 /* BHRExtensions.h */,
+				A2E726671E7390C0009CBE71 /* BHRExtensions.h */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -471,15 +480,6 @@
 				B2524E211E72B61500733A21 /* SVWebViewControllerActivitySafari@2x.png */,
 			);
 			path = Safari;
-			sourceTree = "<group>";
-		};
-		B2524E531E72BB9400733A21 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				B2524E581E72BB9500733A21 /* libBHRExtensions.a */,
-				B2524E5A1E72BB9500733A21 /* BHRExtensionsTests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		B2524E761E72C57000733A21 /* Category */ = {
@@ -677,8 +677,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = B2524E531E72BB9400733A21 /* Products */;
-					ProjectRef = B2524E521E72BB9400733A21 /* BHRExtensions.xcodeproj */;
+					ProductGroup = A2E7265F1E7390A2009CBE71 /* Products */;
+					ProjectRef = A2E7265E1E7390A2009CBE71 /* BHRExtensions.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -689,18 +689,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		B2524E581E72BB9500733A21 /* libBHRExtensions.a */ = {
+		A2E726641E7390A2009CBE71 /* libBHRExtensions.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libBHRExtensions.a;
-			remoteRef = B2524E571E72BB9500733A21 /* PBXContainerItemProxy */;
+			remoteRef = A2E726631E7390A2009CBE71 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		B2524E5A1E72BB9500733A21 /* BHRExtensionsTests.xctest */ = {
+		A2E726661E7390A2009CBE71 /* BHRExtensionsTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = BHRExtensionsTests.xctest;
-			remoteRef = B2524E591E72BB9500733A21 /* PBXContainerItemProxy */;
+			remoteRef = A2E726651E7390A2009CBE71 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
