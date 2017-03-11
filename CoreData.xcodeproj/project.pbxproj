@@ -122,6 +122,7 @@
 		A2E7269E1E73BFE5009CBE71 /* GCDAsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncUdpSocket.h; sourceTree = "<group>"; };
 		A2E7269F1E73BFE5009CBE71 /* GCDAsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncUdpSocket.m; sourceTree = "<group>"; };
 		A2E726A51E73BFF5009CBE71 /* CocoaAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocoaAsyncSocket.h; sourceTree = "<group>"; };
+		A2E726A61E73C12E009CBE71 /* BHRExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BHRExtensions.h; path = "../../Downloads/BHRExtensions-master/BHRExtensions/BHRExtensions.h"; sourceTree = "<group>"; };
 		B22FFBE31E6D446700849BA5 /* Session+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Session+CoreDataClass.h"; sourceTree = "<group>"; };
 		B22FFBE41E6D446800849BA5 /* Session+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Session+CoreDataClass.m"; sourceTree = "<group>"; };
 		B22FFBE51E6D446800849BA5 /* Session+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Session+CoreDataProperties.h"; sourceTree = "<group>"; };
@@ -245,7 +246,6 @@
 		B2524E351E72B73700733A21 /* Address+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Address+CoreDataProperties.h"; sourceTree = "<group>"; };
 		B2524E361E72B73700733A21 /* Address+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Address+CoreDataProperties.m"; sourceTree = "<group>"; };
 		B2524E521E72BB9400733A21 /* BHRExtensions.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BHRExtensions.xcodeproj; path = "../../../../Downloads/BHRExtensions-master/BHRExtensions.xcodeproj"; sourceTree = "<group>"; };
-		B2524E5C1E72BBBE00733A21 /* BHRExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BHRExtensions.h; path = "../../../../Downloads/BHRExtensions-master/BHRExtensions/BHRExtensions.h"; sourceTree = "<group>"; };
 		B2524E621E72BC3B00733A21 /* Model1ToModel2.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = Model1ToModel2.xcmappingmodel; sourceTree = "<group>"; };
 		B2524E631E72BC3B00733A21 /* Model2ToModel3.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = Model2ToModel3.xcmappingmodel; sourceTree = "<group>"; };
 		B2524E641E72BC3B00733A21 /* Model3ToModel4.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = Model3ToModel4.xcmappingmodel; sourceTree = "<group>"; };
@@ -422,7 +422,7 @@
 		B2524DEC1E72AFE600733A21 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				B2524E5C1E72BBBE00733A21 /* BHRExtensions.h */,
+				A2E726A61E73C12E009CBE71 /* BHRExtensions.h */,
 			);
 			path = Source;
 			sourceTree = "<group>";
