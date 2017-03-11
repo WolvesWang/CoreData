@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="16D32" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
+    <entity name="Animal" representedClassName="Animal" isAbstract="YES" syncable="YES">
+        <attribute name="eatFood" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sleepDec" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Bird" representedClassName="Bird" parentEntity="Animal" syncable="YES">
+        <attribute name="feed" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fly" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Employee" representedClassName="Employee" syncable="YES">
+        <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="empID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="empName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="extensionNumber" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="mobilephone" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sex" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="job" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Job" inverseName="employees" inverseEntity="Job" syncable="YES"/>
+        <relationship name="organization" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Origanization" inverseName="employees" inverseEntity="Origanization" syncable="YES"/>
+    </entity>
+    <entity name="Job" representedClassName="Job" syncable="YES">
+        <attribute name="jobID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="jobName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="employees" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Employee" inverseName="job" inverseEntity="Employee" syncable="YES"/>
+    </entity>
+    <entity name="Mammal" representedClassName="Mammal" parentEntity="Animal" syncable="YES">
+        <attribute name="habit" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="suckle" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="walk" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Message" representedClassName="Message" syncable="YES">
+        <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dateTime" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="isReaded" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="fromEmployee" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Employee" syncable="YES"/>
+        <relationship name="session" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Session" syncable="YES"/>
+    </entity>
+    <entity name="Origanization" representedClassName="Origanization" syncable="YES">
+        <attribute name="orgID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="orgName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="employees" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Employee" inverseName="organization" inverseEntity="Employee" syncable="YES"/>
+        <relationship name="leaders" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Employee" syncable="YES"/>
+        <relationship name="subOrgs" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Origanization" inverseName="superOrg" inverseEntity="Origanization" syncable="YES"/>
+        <relationship name="superOrg" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Origanization" inverseName="subOrgs" inverseEntity="Origanization" syncable="YES"/>
+    </entity>
+    <entity name="Session" representedClassName="Session" syncable="YES">
+        <attribute name="sessionID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sessionType" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="unReadNumber" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="fromEmplyee" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Employee" syncable="YES"/>
+        <relationship name="lastMessage" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Message" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Animal" positionX="-245" positionY="126" width="128" height="75"/>
+        <element name="Bird" positionX="-452" positionY="252" width="128" height="73"/>
+        <element name="Employee" positionX="106" positionY="-288" width="128" height="178"/>
+        <element name="Job" positionX="261" positionY="-189" width="128" height="88"/>
+        <element name="Mammal" positionX="-45" positionY="240" width="128" height="88"/>
+        <element name="Message" positionX="-306" positionY="-369" width="135" height="133"/>
+        <element name="Origanization" positionX="-506" positionY="-288" width="128" height="133"/>
+        <element name="Session" positionX="-522" positionY="-27" width="128" height="43"/>
+    </elements>
+</model>

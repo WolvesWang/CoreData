@@ -15,7 +15,18 @@
 
 @property (readonly, strong) NSPersistentContainer *persistentContainer;
 
+@property (strong, readonly) NSManagedObjectContext *viewContext;
+@property (strong, readonly) NSManagedObjectModel *managedObjectModel;
+@property (strong, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+
 - (void)saveContext;
+/*
+ - (NSURL *)applicationDocumentsDirectory;
+ 
+ - (NSString *)currentUserImageDocumentsDirectory;
+ - (NSString *)currentUserAudioDocumentsDirectory;
+ - (NSString *)currentUserVideoDocumentsDirectory;
+ */
 
 
 @end

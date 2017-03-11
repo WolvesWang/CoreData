@@ -1,0 +1,14 @@
+//
+//  CoreData.pch
+//  CoreData
+//
+//  Created by wangwenbing on 2017/3/10.
+//  Copyright © 2017年 Centit. All rights reserved.
+//
+
+#ifndef CoreData_h
+#define CoreData_h
+
+#import "BHRExtensions.h"
+
+#endif /* CoreData_h */
