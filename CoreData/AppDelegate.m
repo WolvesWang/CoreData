@@ -16,7 +16,9 @@
 #import "Bird+CoreDataClass.h"
 #import "Mammal+CoreDataClass.h"
 #import "Address+CoreDataClass.h"
-@interface AppDelegate ()
+
+
+@interface AppDelegate ()<GCDAsyncSocketDelegate>
 
 @property (strong, nonatomic) NSManagedObjectContext *viewContext;
 @property (strong, nonatomic) NSManagedObjectModel *managedObjectModel;
@@ -25,6 +27,18 @@
 
 
 @property (nonatomic, strong) NSDictionary *dataDictionary;
+
+@property (nonatomic, copy) NSString *strIP;
+@property (nonatomic, copy) NSString *deviceID;
+@property (nonatomic, assign) NSInteger nPort;
+@property (nonatomic, strong) GCDAsyncSocket *appAsyncSocket;
+@property (nonatomic, strong) dispatch_queue_t  appTcpQueue;
+@property (nonatomic, strong) dispatch_source_t   heartBeatTimer;
+
+@property (nonatomic, assign) dispatch_once_t appRegToken;
+
+- (void)openAppAsyncSocket;
+- (void)startHeartBeat:(double)interval;
 
 
 @end
@@ -343,4 +357,143 @@
     [self saveContext];
 }
 
+#pragma mark Socket Delegate
+
+- (void)openAppAsyncSocket {
+    self.appTcpQueue = dispatch_queue_create("com.huaiye.mcu.app.tcp", DISPATCH_QUEUE_SERIAL);
+    self.appAsyncSocket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:self.appTcpQueue];
+    
+    NSError *error = nil;
+    if (![self.appAsyncSocket connectToHost:[self.serverInfo objectForKey:@"SERVER_TCP_IP"]
+                                     onPort:[[self.serverInfo objectForKey:@"SERVER_IOSTCP_PORT"] integerValue]
+                                withTimeout:15 error:&error]) {
+        NSLog(@"### App Async Socket Error: %@", error);
+    }
+}
+
+- (void)startHeartBeat:(double)interval {
+    if (self.heartBeatTimer) {
+        dispatch_source_cancel(self.heartBeatTimer);
+        self.heartBeatTimer = nil;
+    }
+    
+    __weak AppDelegate *weakSelf = self;
+    /*
+     app的心跳接口
+     */
+//    self.heartBeatObj = [[HYHeartBeat alloc] init];
+//    self.heartBeatObj.uid = @"App Heart Beat";
+    self.heartBeatTimer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0));
+    dispatch_source_set_timer(self.heartBeatTimer, dispatch_walltime(nil, 0), interval*NSEC_PER_SEC, 0.05*NSEC_PER_SEC);
+    dispatch_source_set_event_handler(self.heartBeatTimer, ^{
+        //Send AppRegister Message
+        NSLog(@"### App TCP Heart Beat Send ...");
+       // [weakSelf writeObject:weakSelf.heartBeatObj withMessageID:HYMessageIDAppHeartBeat];
+    });
+    dispatch_resume(self.heartBeatTimer);
+}
+
+- (void)writeObject:(id)msgObj withMessageID:(NSInteger)msgID {
+    NSError *error = nil;
+    NSData *appData= nil;
+    if ([msgObj isKindOfClass:[Jastor class]]) {
+        appData = [NSJSONSerialization dataWithJSONObject:[msgObj toDictionary] options:NSJSONWritingPrettyPrinted error:&error];
+        if (!appData) {
+            NSLog(@"Json Error: %@", error);
+        }
+    }
+    else if ([msgObj isKindOfClass:[NSData class]]) {
+        appData = msgObj;
+    }
+    else if ([msgObj conformsToProtocol:@protocol(NSCoding)]) {
+        //appData = [NSKeyedArchiver archivedDataWithRootObject:msgObj];
+    }
+    
+    UInt32 nLength = htonl(sizeof(UInt32)*2+appData.length);
+    UInt32 messageID = htonl(msgID);
+    NSMutableData *bodyData = [NSMutableData dataWithBytes:&nLength length:sizeof(UInt32)];
+    [bodyData appendData:[NSData dataWithBytes:&messageID length:sizeof(UInt32)]];
+    [bodyData appendData:appData];
+    [self.appAsyncSocket writeData:bodyData withTimeout:5 tag:msgID];
+}
+
+- (void)socket:(GCDAsyncSocket *)sock didConnectToHost:(NSString *)host port:(UInt16)port
+{
+    NSLog(@"App Tcp Server(%@:%d) did connected...", host, port);
+    [self.appAsyncSocket readDataWithTimeout:-1 tag:0];
+    
+    //启动心跳定时器
+    [self startHeartBeat:5.0f];
+    
+    dispatch_once(&_appRegToken, ^{
+        //Send AppRegister Message
+//        HYAppRegisterReq *appRegReq = [[HYAppRegisterReq alloc] init];
+//        appRegReq.uid = [NSString stringWithFormat:@"%ld", HYMessageIDAppRegisterReq];
+//        appRegReq.loginName = [self.userInfo objectForKey:@"loginName"];
+//        appRegReq.deviceNo  = self.deviceID;
+//        [self writeObject:appRegReq withMessageID:HYMessageIDAppRegisterReq];
+    });
+    
+    if (!self.appRegToken) {
+        // 链接TCP
+        
+//        HYReAppConnectReq *connectReq =[[HYReAppConnectReq alloc]init];
+//        connectReq.uid =[NSString stringWithFormat:@"%ld",HYMessageIDReAppConnectReq];
+//        connectReq.loginName = [self.userInfo objectForKey:@"loginName"];
+//        connectReq.deviceNo = self.deviceID;
+//        [self writeObject:connectReq withMessageID:HYMessageIDReAppConnectReq];
+    }
+}
+
+//接收从服务器推送过来的数据
+- (void)socket:(GCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag
+{
+    NSLog(@"socket didReadData Tag:%ld", tag);
+    
+    UInt32 nTotalLength = 0;
+    if (data || data.length > 7) {
+        [data getBytes:&nTotalLength range:NSMakeRange(0, 4)];
+        nTotalLength = ntohl(nTotalLength);
+        if (nTotalLength == data.length) {
+            NSError *error = nil;
+            UInt32 nMessageID = 0;
+            [data getBytes:&nMessageID range:NSMakeRange(4, 4)];
+            nMessageID = ntohl(nMessageID);
+            NSData *objData = [data subdataWithRange:NSMakeRange(8, data.length-8)];
+            id rspObj = [NSJSONSerialization JSONObjectWithData:objData options:NSJSONReadingMutableContainers error:&error];
+            if (!rspObj) {
+                rspObj = [NSKeyedUnarchiver unarchiveObjectWithData:objData];
+            }
+            switch (nMessageID) {
+                case 1 :
+            
+                    break;
+                    
+                default:
+                    break;
+            }
+        }
+    }
+    [sock readDataWithTimeout:-1 tag:0];
+
+}
+-  (void)socket:(GCDAsyncSocket *)sock didWriteDataWithTag:(long)tag
+{
+    NSLog(@"socket:%p didWriteDataWithTag:%ld", sock, tag);
+}
+
+- (void)socketDidDisconnect:(GCDAsyncSocket *)sock withError:(NSError *)err
+{
+    NSLog(@"socketDidDisconnect:%@ withError: %@", sock, err);
+    
+    //关闭定时器
+    if (self.heartBeatTimer) {
+        dispatch_source_cancel(self.heartBeatTimer);
+        self.heartBeatTimer = nil;
+    }
+    //App登录成功之后,会返回注册的个人信息
+//    if (nil != self.userInfo) {
+//        [self openAppAsyncSocket];
+//    }
+}
 @end

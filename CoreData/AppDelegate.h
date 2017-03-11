@@ -9,6 +9,10 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 
+
+//实现TCP长链接
+#import "CocoaAsyncSocket.h"
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
@@ -19,7 +23,18 @@
 @property (strong, readonly) NSManagedObjectModel *managedObjectModel;
 @property (strong, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
+//-------------TCP
+@property (nonatomic, copy, readonly) NSString *strIP;
+@property (nonatomic, copy, readonly) NSString *deviceID;
+@property (nonatomic, assign, readonly) NSInteger nPort;
+@property (nonatomic, strong, readonly) GCDAsyncSocket *appAsyncSocket;
+@property (nonatomic, strong) NSDictionary *useInfo;
+@property (nonatomic, strong) NSDictionary *serverInfo;
+
+
 - (void)saveContext;
+
+- (void)writeObject:(id)msgObj withMessageID:(NSInteger)msgID;
 /*
  - (NSURL *)applicationDocumentsDirectory;
  
