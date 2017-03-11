@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A2E726A01E73BFE5009CBE71 /* Documentation.html in Resources */ = {isa = PBXBuildFile; fileRef = A2E7269B1E73BFE5009CBE71 /* Documentation.html */; };
+		A2E726A11E73BFE5009CBE71 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E7269D1E73BFE5009CBE71 /* GCDAsyncSocket.m */; };
+		A2E726A21E73BFE5009CBE71 /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E7269F1E73BFE5009CBE71 /* GCDAsyncUdpSocket.m */; };
 		B22FFC031E6D446800849BA5 /* Session+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = B22FFBE41E6D446800849BA5 /* Session+CoreDataClass.m */; };
 		B22FFC041E6D446800849BA5 /* Session+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = B22FFBE61E6D446800849BA5 /* Session+CoreDataProperties.m */; };
 		B22FFC071E6D446800849BA5 /* Job+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = B22FFBEC1E6D446800849BA5 /* Job+CoreDataClass.m */; };
@@ -113,6 +116,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A2E7269B1E73BFE5009CBE71 /* Documentation.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Documentation.html; sourceTree = "<group>"; };
+		A2E7269C1E73BFE5009CBE71 /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
+		A2E7269D1E73BFE5009CBE71 /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
+		A2E7269E1E73BFE5009CBE71 /* GCDAsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncUdpSocket.h; sourceTree = "<group>"; };
+		A2E7269F1E73BFE5009CBE71 /* GCDAsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncUdpSocket.m; sourceTree = "<group>"; };
+		A2E726A51E73BFF5009CBE71 /* CocoaAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocoaAsyncSocket.h; sourceTree = "<group>"; };
 		B22FFBE31E6D446700849BA5 /* Session+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Session+CoreDataClass.h"; sourceTree = "<group>"; };
 		B22FFBE41E6D446800849BA5 /* Session+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Session+CoreDataClass.m"; sourceTree = "<group>"; };
 		B22FFBE51E6D446800849BA5 /* Session+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Session+CoreDataProperties.h"; sourceTree = "<group>"; };
@@ -297,6 +306,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A2E7269A1E73BFE5009CBE71 /* GCD */ = {
+			isa = PBXGroup;
+			children = (
+				A2E726A51E73BFF5009CBE71 /* CocoaAsyncSocket.h */,
+				A2E7269B1E73BFE5009CBE71 /* Documentation.html */,
+				A2E7269C1E73BFE5009CBE71 /* GCDAsyncSocket.h */,
+				A2E7269D1E73BFE5009CBE71 /* GCDAsyncSocket.m */,
+				A2E7269E1E73BFE5009CBE71 /* GCDAsyncUdpSocket.h */,
+				A2E7269F1E73BFE5009CBE71 /* GCDAsyncUdpSocket.m */,
+			);
+			path = GCD;
+			sourceTree = "<group>";
+		};
 		B24A2FD61E67B79500E5A07E /* Tools */ = {
 			isa = PBXGroup;
 			children = (
@@ -590,6 +612,7 @@
 		B289D7821E6570AC00D1A632 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				A2E7269A1E73BFE5009CBE71 /* GCD */,
 				B2524E761E72C57000733A21 /* Category */,
 				B2524DEC1E72AFE600733A21 /* Source */,
 				B24A30121E6819F000E5A07E /* Protocol */,
@@ -715,6 +738,7 @@
 				B2524E2F1E72B61500733A21 /* SVWebViewControllerActivitySafari-iPad@2x.png in Resources */,
 				B2524E2B1E72B61500733A21 /* SVWebViewControllerActivityChrome-iPad@2x.png in Resources */,
 				B2524E2A1E72B61500733A21 /* SVWebViewControllerActivityChrome-iPad.png in Resources */,
+				A2E726A01E73BFE5009CBE71 /* Documentation.html in Resources */,
 				B289D7961E6570AD00D1A632 /* LaunchScreen.storyboard in Resources */,
 				B2524E281E72B61500733A21 /* SVWebViewController.bundle in Resources */,
 				B2524E061E72B5DA00733A21 /* players.xml in Resources */,
@@ -761,11 +785,13 @@
 				B2524E7B1E72C59A00733A21 /* WBLabel.m in Sources */,
 				B2524E721E72C2D600733A21 /* CoreData.xcdatamodeld in Sources */,
 				B289D78B1E6570AD00D1A632 /* ViewController.m in Sources */,
+				A2E726A21E73BFE5009CBE71 /* GCDAsyncUdpSocket.m in Sources */,
 				B22FFC1D1E6D740400849BA5 /* Mammal+CoreDataClass.m in Sources */,
 				B26EE0661E66570A00846517 /* JastorRuntimeHelper.m in Sources */,
 				B24A30031E6800CB00E5A07E /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				B24A30001E6800CB00E5A07E /* AFAutoPurgingImageCache.m in Sources */,
 				B2524E6A1E72BD3800733A21 /* AppDelegate.m in Sources */,
+				A2E726A11E73BFE5009CBE71 /* GCDAsyncSocket.m in Sources */,
 				B26D01AB1E6949B700A4D0A9 /* WBURLAuthenticationChallenge.m in Sources */,
 				B26D01AE1E6951E100A4D0A9 /* WBDevice.m in Sources */,
 				B24A30021E6800CB00E5A07E /* AFNetworkActivityIndicatorManager.m in Sources */,
